@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap'); 
+/* Inter font 400, 600, 700 from Google Fonts */
+
+html,
+body,
+#root,
+.app {
+  height: 100%;
+  width: 100%;
+  font-family: "Inter", sans-serif;
+  background-color: #1f2026;
+}
+/* 
+These four tags/CSS selectors are saying: 
+- make height & width 100% - app takes up entire screen.
+- font family for entire app is Inter, sans-serif is backup?
+- background color set. 
+*/
+

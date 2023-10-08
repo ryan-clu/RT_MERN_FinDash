@@ -1,5 +1,8 @@
 {
   "compilerOptions": {
+    "paths": {
+      "@/*": ["./src/*"]
+    },
     "target": "ES2020",
     "useDefineForClassFields": true,
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
@@ -13,6 +16,7 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
+    "types": ["vite/client"],
 
     /* Linting */
     "strict": true,
@@ -23,3 +27,13 @@
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
+
+/* Notes
+- "types": ["vite/client"],
+added because TS doesn't like .env.local variables. This way won't yell.
+
+- "paths": {
+      "@/*": ["./src/*"]
+    },
+completes our pathing configuration from vite.config.ts
+*/
