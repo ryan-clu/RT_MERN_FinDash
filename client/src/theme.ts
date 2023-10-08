@@ -104,3 +104,16 @@ export const themeSettings = {
     },
   },
 };
+
+/* Notes
+theme.ts was manually added to this src folder to setup MUI theme for app,
+also extend the default theme with color and styling we want.
+
+Tokens - basically just represent different colors of variations of 
+different hues/shades of the same color.
+
+The tokens and colors/hues/shades we created don't exist with regular/default
+MUI. These can be generated (numbers) with a tailwind extension.
+
+themeSettings consist of palette and typography... pretty straight forward.
+*/
