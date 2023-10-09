@@ -5,6 +5,9 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import helmet from 'helmet';
 import morgan from 'morgan';
+import kpiRoutes from "./routes/kpi.js";
+import KPI from './models/KPI.js';
+import { kpis } from './data/data.js';
 
 /* CONFIGURATIONS */
 dotenv.config();
@@ -17,6 +20,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 
+/* ROUTES */
+app.use("/kpi", kpiRoutes); 
+
 /* Mongoose / MongoDB SETUP */
 const PORT = process.env.PORT || 9000;
 
@@ -27,6 +33,10 @@ mongoose
   })
   .then(async () => {
     app.listen(PORT, () => console.log(`Server connected on Port ${PORT}.`));
+
+    /* ADD DATA ONE TIME ONLY -- OR -- AS NEEDED */
+    // await mongoose.connection.db.dropDatabase();
+    // KPI.insertMany(kpis);
   })
   .catch((error) => console.log(`${error} did not connect.`));
 
@@ -50,4 +60,11 @@ you can call from a different URL
 
 - THIS IS A NOW OUTDATED VERSION OF CONNECTING TO MONGODB. SEE AUTH APP
 FOR EX OF UP TO DATE METHOD. 
+
+- I am seeding database with generated data. 
+await mongoose.connection.db.dropDatabase();
+this line will drop existing/current db so we do not have duplicate
+data and run into errors. 
+- For development and testing purposes this is fine.
+- DO NOT DO THIS ON PRODUCTION/ENTERPRISE APPS. DO NOT DELETE DATA.
 */
