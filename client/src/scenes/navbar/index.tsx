@@ -16,14 +16,14 @@ const Navbar = (props: Props) => {
       <FlexBetween gap='0.75rem'>
         <TsunamiIcon sx={{ fontSize: '28px' }} />
         <Typography variant='h4' fontSize='16px'>
-          Tsunami Finance
+          Tsunami Analytics
         </Typography>
       </FlexBetween>
 
       {/* RIGHT SIDE */}
       <FlexBetween gap='2rem'>
         {/* Dashboard */}
-        <Box sx={{ '&:hover': { color: palette.primary[100] } }}>
+        <Box sx={{ fontSize: '14px', '&:hover': { color: palette.primary[100], fontSize: '16px' } }}>
           <Link
             to='/'
             onClick={() => setSelected('dashboard')}
@@ -36,7 +36,7 @@ const Navbar = (props: Props) => {
           </Link>
         </Box>
         {/* Predictions */}
-        <Box sx={{ '&:hover': { color: palette.primary[100] } }}>
+        <Box sx={{ fontSize: '14px', '&:hover': { color: palette.primary[100], fontSize: '16px' } }}>
           <Link
             to='/predictions'
             onClick={() => setSelected('predictions')}
@@ -56,7 +56,5 @@ const Navbar = (props: Props) => {
 export default Navbar;
 
 /* Notes
-Flexbox
-
 
 */
