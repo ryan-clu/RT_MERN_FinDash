@@ -81,10 +81,11 @@ const Dashboard = () => {
 
 export default Dashboard;
 
-/*
+/* Notes
 - FlexBox is good for 1 dimensions. If its just a row or colum
 of elements to arrange.
 - For anything 2D, even a 2 x 2 it is best to use FlexGrid or grid.
 Use a gridTemplate like seen above to organize how much area you
 want an element to take. Adjust 
+
 */
