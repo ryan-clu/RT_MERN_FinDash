@@ -17,8 +17,18 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 
-/* Mongoose / MongoDB SETUP */ 
-console.log('Hello User.')
+/* Mongoose / MongoDB SETUP */
+const PORT = process.env.PORT || 9000;
+
+mongoose
+  .connect(process.env.MONGO_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(async () => {
+    app.listen(PORT, () => console.log(`Server connected on Port ${PORT}.`));
+  })
+  .catch((error) => console.log(`${error} did not connect.`));
 
 /* Note
 - For our server/backend API we are using ES Modules 
@@ -37,4 +47,7 @@ you get an object body.
 
 - cors: handles cross origin resource sharing requests so that 
 you can call from a different URL
+
+- THIS IS A NOW OUTDATED VERSION OF CONNECTING TO MONGODB. SEE AUTH APP
+FOR EX OF UP TO DATE METHOD. 
 */
