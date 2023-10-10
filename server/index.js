@@ -25,7 +25,7 @@ app.use(cors());
 
 /* ROUTES */
 app.use('/kpi', kpiRoutes);
-app.use('/products', productRoutes);
+app.use('/product', productRoutes);
 
 /* Mongoose / MongoDB SETUP */
 const PORT = process.env.PORT || 9000;

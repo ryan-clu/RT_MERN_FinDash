@@ -1,23 +1,29 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { GetKpisResponse } from './types';
+import { GetKpisResponse, GetProductsResponse } from './types';
 
 export const api = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: import.meta.env.VITE_BASE_URL }),
   reducerPath: 'main',
-  tagTypes: ['Kpis'],
+  tagTypes: ['Kpis', 'Products'],
   endpoints: (build) => ({
     getKpis: build.query<Array<GetKpisResponse>, void>({
       query: () => 'kpi/kpis/',
       providesTags: ['Kpis'],
     }),
+    getProducts: build.query<Array<GetProductsResponse>, void>({
+      query: () => 'product/products/',
+      providesTags: ['Products'],
+    }),
   }),
 });
 
-export const { useGetKpisQuery } = api;
+export const { useGetKpisQuery, useGetProductsQuery } = api;
 
 /* Notes
 - Redux Toolkit Query - so we can grab or make API calls, and 
 data can be stored in the global store.
+
+- build.query vs build.mutation (post, put, etc.)
 
 - Using redux toolkit query's createApi to allow us to make 
 endpoints that we can use to call our backend. So we can grab
