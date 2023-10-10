@@ -88,4 +88,7 @@ of elements to arrange.
 Use a gridTemplate like seen above to organize how much area you
 want an element to take. Adjust 
 
+- Having all the codes for each chart/area here in the index
+made it an eyesoar. 'Divided' the graphs into Rows.
+
 */
