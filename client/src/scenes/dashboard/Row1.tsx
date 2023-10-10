@@ -80,7 +80,7 @@ const Row1 = () => {
               top: 15,
               right: 25,
               left: -10,
-              bottom: 60,
+              bottom: 70,
             }}
           >
             <defs>
