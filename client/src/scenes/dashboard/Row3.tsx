@@ -9,12 +9,8 @@ import {
 } from '@/state/api';
 import { DataGrid, GridCellParams } from '@mui/x-data-grid';
 import {
-  LineChart,
-  Line,
   PieChart,
   Pie,
-  ScatterChart,
-  Scatter,
   Cell,
   XAxis,
   YAxis,
@@ -27,10 +23,32 @@ import { Box, useTheme, Typography } from '@mui/material';
 
 const Row3 = () => {
   const { palette } = useTheme();
+  const pieColors = [palette.primary[800], palette.primary[500]];
   const { data: kpiData } = useGetKpisQuery();
   const { data: productData } = useGetProductsQuery();
   const { data: transactionData } = useGetTransactionsQuery();
-  console.log('🚀 ~ transactionData:', transactionData);
+  // console.log('🚀 ~ transactionData:', transactionData);
+
+  const pieChartData = useMemo(() => {
+    if (kpiData) {
+      const totalExpenses = kpiData[0].totalExpenses;
+      return Object.entries(kpiData[0].expensesByCategory).map(
+        ([key, value]) => {
+          return [
+            {
+              name: key,
+              value: value,
+            },
+            {
+              name: `Other expenses besides ${key}`,
+              value: totalExpenses - value,
+            },
+          ];
+        }
+      );
+    }
+  }, [kpiData]);
+  // console.log(`This is pieChartData`, pieChartData);
 
   const productColumns = [
     {
@@ -73,7 +91,8 @@ const Row3 = () => {
       field: 'productIds',
       headerName: 'Count',
       flex: 0.1,
-      renderCell: (params: GridCellParams) => (params.value as Array<string>).length,
+      renderCell: (params: GridCellParams) =>
+        (params.value as Array<string>).length,
     },
   ];
 
@@ -150,10 +169,57 @@ const Row3 = () => {
           />
         </Box>
       </DashboardBox>
-      {/*  */}
-      <DashboardBox gridArea='i'></DashboardBox>
-      {/*  */}
-      <DashboardBox gridArea='j'></DashboardBox>
+
+      {/* Expense Breakdown By Category */}
+      <DashboardBox gridArea='i'>
+        <BoxHeader title='Expense Breakdown By Category' sideText='+4%' />
+        <FlexBetween mt='0rem' gap='0.5rem' p='0 1rem' textAlign='center'>
+          {pieChartData?.map((data, i) => (
+            <Box key={`${data[0].name}-${i}`}>
+              <PieChart width={110} height={100}>
+                <Pie
+                  // stroke='none'
+                  data={data}
+                  innerRadius={18}
+                  outerRadius={35}
+                  paddingAngle={2}
+                  dataKey='value'
+                >
+                  {data.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={pieColors[index]} />
+                  ))}
+                </Pie>
+              </PieChart>
+              <Typography variant='h5'>{data[0].name}</Typography>
+            </Box>
+          ))}
+        </FlexBetween>
+      </DashboardBox>
+
+      {/* Overall Summary and Explanation Data */}
+      <DashboardBox gridArea='j'>
+        <BoxHeader title='Overall Summary & Explanation Data' sideText='+15%' />
+        <Box
+          height='15px'
+          margin='1rem 1rem 0.4rem 1rem'
+          bgcolor={palette.primary[800]}
+          borderRadius='1rem'
+        >
+          <Box
+            height='15px'
+            bgcolor={palette.primary[600]}
+            borderRadius='1rem'
+            width='40%'
+          ></Box>
+        </Box>
+        <Typography margin='0 1rem' variant='h6'>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit.
+        </Typography>
+      </DashboardBox>
     </>
   );
 };
