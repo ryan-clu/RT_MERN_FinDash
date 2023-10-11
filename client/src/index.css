@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 /* Inter font 400, 600, 700 from Google Fonts */
 
 html,
@@ -7,13 +7,35 @@ body,
 .app {
   height: 100%;
   width: 100%;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   background-color: #1f2026;
 }
-/* 
-These four tags/CSS selectors are saying: 
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #242427;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #48494e;
+}
+
+::-webkit-scrollbar-track:hover {
+  background: #5c5e64;
+}
+
+/* Notes
+(.app) These four tags/CSS selectors are saying: 
 - make height & width 100% - app takes up entire screen.
 - font family for entire app is Inter, sans-serif is backup?
 - background color set. 
-*/
 
+- Did not like styling of built-in Datagrid tables 
+scrollbar. Also tracking did not exactly sync up
+with table entries. 
+- Modifiying scroll bar styling globally here.
+- Is there a way to target scroll bar and style locally...
+*/

@@ -45,6 +45,17 @@ export interface GetProductsResponse {
   updatedAt: string;
 }
 
+export interface GetTransactionsResponse {
+  id: string;
+  _id: string;
+  __v: number;
+  buyer: number;
+  amount: number;
+  productIds: Array<string>;
+  createdAt: string;
+  updatedAt: string;
+}
+
 /* Notes
 - Identify the types we need for TS... so it doesn't yell.
 */
