@@ -1,35 +1,30 @@
+import { Box, Typography, useTheme } from '@mui/material';
 import React from 'react';
 import FlexBetween from './FlexBetween';
-import { Box, Typography, useTheme } from '@mui/material';
 
 type Props = {
-  icon?: React.ReactNode;
   title: string;
+  sideText: string;
   subtitle?: string;
-  sideText?: string;
+  icon?: React.ReactNode;
 };
 
 const BoxHeader = ({ icon, title, subtitle, sideText }: Props) => {
   const { palette } = useTheme();
-
   return (
     <FlexBetween color={palette.grey[400]} margin='1rem 1rem 0 1rem'>
-      {/* LEFT */}
       <FlexBetween>
         {icon}
         <Box width='100%'>
-          <Typography variant='h4' mb='-0.1'>
+          <Typography variant='h4' mb='-0.1rem'>
             {title}
           </Typography>
           <Typography variant='h6'>{subtitle}</Typography>
         </Box>
       </FlexBetween>
-      {/* RIGHT */}
-      <FlexBetween>
-        <Typography variant='h5' fontWeight="700" color={palette.secondary[500]}>
-          {sideText}
-        </Typography>
-      </FlexBetween>
+      <Typography variant='h5' fontWeight='700' color={palette.secondary[500]}>
+        {sideText}
+      </Typography>
     </FlexBetween>
   );
 };
