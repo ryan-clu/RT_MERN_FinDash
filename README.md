@@ -6,9 +6,9 @@ Tsunami Analytics is a financial dashboard application using the MERN stack.
 <img width="1679" alt="Screen Shot 2023-10-12 at 11 59 55 PM" src="https://github.com/ryan-clu/RT_MERN_FinDash/assets/99780324/2a867a79-c601-4b3e-8dfb-9fd6ab7151dc">
 
 ## Key Features :key:
-:balloon: Displays data analytics and KPIs for business and business stakeholders. 
-:balloon: Dashboard: Graphs and charts generated using recharts.js. Summarizes financial metrics and KPIs.
-:balloon: Predictions: Displays information on revenue and uses simple machine learning to make a regression line as well as show predicted revenue. 
+:balloon: Displays data analytics and KPIs for business and business stakeholders.<br/>
+:balloon: Dashboard: Graphs and charts generated using recharts.js. Summarizes financial metrics and KPIs.<br/>
+:balloon: Predictions: Displays information on revenue and uses simple machine learning to make a regression line as well as show predicted revenue.<br/> 
 
 
 ## Tech Stack :books:
