@@ -12,12 +12,6 @@ import {
   PieChart,
   Pie,
   Cell,
-  XAxis,
-  YAxis,
-  ZAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
 } from 'recharts';
 import { Box, useTheme, Typography } from '@mui/material';
 
@@ -172,7 +166,7 @@ const Row3 = () => {
 
       {/* Expense Breakdown By Category */}
       <DashboardBox gridArea='i'>
-        <BoxHeader title='Expense Breakdown By Category' sideText='+4%' />
+        <BoxHeader title='Expense Breakdown by Category' sideText='+4%' />
         <FlexBetween mt='0rem' gap='0.5rem' p='0 1rem' textAlign='center'>
           {pieChartData?.map((data, i) => (
             <Box key={`${data[0].name}-${i}`}>

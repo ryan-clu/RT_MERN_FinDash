@@ -140,6 +140,7 @@ const Row1 = () => {
           </AreaChart>
         </ResponsiveContainer>
       </DashboardBox>
+
       {/* PROFIT & REVENUE LINE CHART */}
       <DashboardBox gridArea='b'>
         <BoxHeader
@@ -200,6 +201,7 @@ const Row1 = () => {
           </LineChart>
         </ResponsiveContainer>
       </DashboardBox>
+      
       {/* REVENUE MONTH BY MONTH BAR CHART */}
       <DashboardBox gridArea='c'>
         <BoxHeader
