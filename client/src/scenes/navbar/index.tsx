@@ -4,9 +4,7 @@ import { Box, Typography, useTheme } from '@mui/material';
 import FlexBetween from '@/components/FlexBetween';
 import TsunamiIcon from '@mui/icons-material/Tsunami';
 
-type Props = {};
-
-const Navbar = (props: Props) => {
+const Navbar = () => {
   const { palette } = useTheme();
   const [selected, setSelected] = useState('dashboard');
 

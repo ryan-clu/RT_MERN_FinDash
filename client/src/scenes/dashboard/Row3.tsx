@@ -179,7 +179,7 @@ const Row3 = () => {
                   paddingAngle={2}
                   dataKey='value'
                 >
-                  {data.map((entry, index) => (
+                  {data.map((index) => (
                     <Cell key={`cell-${index}`} fill={pieColors[index]} />
                   ))}
                 </Pie>
@@ -240,4 +240,6 @@ directly targeting child component (Datagrid) specific class
 (class that dictates Datagrid styling)
 - Google Chrome Element inspector to see what class you want
 to target
+
+182- {data.map((entry, index) => (
 */
